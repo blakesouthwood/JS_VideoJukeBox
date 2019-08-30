@@ -1,0 +1,952 @@
+
+<!--  iphone test -->
+<!DOCTYPE html>
+<html>
+<title>Modern Day News</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="/lib/w3-theme-teal.css">
+<body style="max-width:600px">
+
+
+
+<style>
+
+/* videostyles.css     */
+/* mouse over link */
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:hover {
+  color: black;
+}
+
+a:active {
+  color: black;
+}
+
+
+.fixed-size-square {
+    display: table;
+    width: 20px;
+    height: 20px;
+    background: #4DF54E;
+}
+.fixed-size-square span {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    color: white
+}
+
+
+
+div.staticfun {
+     position: relative;
+    left: 50px;
+    top: 250px
+    //align left
+}
+
+
+div.static {
+     position: relative;
+    left: 190px;
+}
+
+div.static1 {
+     position: relative;
+    left: 380px;
+}
+
+
+div.menulist {
+     position: relative;
+    left: 5px;
+}
+
+
+div.staticiframe {
+     position: relative;
+    left: 25px;
+}
+
+//testing here ========================
+div.topwords {
+     position: absolute;
+    width: 500px; 
+    height: 40px;
+    left: 300px;
+    z-index: 2;
+    
+    //position:absolute; right:px; bottom:10px;
+}
+
+
+
+//css code for iframe - crossing my fingers that this puppy works
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+
+.showbox {
+    height:10px;
+    width:10px;
+    background: #7FFFD4; //#00ff00; //powerderblue
+    border: 2px solid #fff;
+    border-radius: 25px;
+    box-shadow: 0px 1px 5px #888888;
+    transform-origin:50% 50%;
+    transform:scale(1);
+    animation: pulse 0.6s infinite linear alternate;
+    -webkit-animation: pulse 0.6s infinite linear alternate;
+}
+@keyframes pulse {
+    to {
+        transform:scale(1.3);
+    }
+}
+@-webkit-keyframes pulse {
+    to {
+        transform:scale(1.3);
+    }
+}
+
+
+ 
+.zu
+
+//=======================
+// left nav css
+
+.odd {
+  background-color: white;
+}
+.evn {
+  background-color: white;
+}
+.selodd {
+  background-color: palegreen; //deepskyblue;
+}
+.selevn {
+  background-color: palegreen; //deepskyblue;
+}
+
+
+#special  
+td:hover,  td.selected{
+    background-color: #4dd2ff; //turquoise
+}
+#special td {padding: 3px;}
+
+
+ footer {
+    position: absolute;
+    left: 387px;
+    bottom: 18px;
+}
+
+ div.movietextmydiv {
+    position: absolute;
+    top: 610px;
+    width: 690px;
+    height: 50px;
+    left: 292px;
+
+}
+
+
+
+div.cool {
+    position: absolute;
+    top: 400px;
+    //right: 50px;
+    left: 200px;
+    width: 750px;
+}
+
+
+div.radiocontrolswitcher {
+    position: absolute;
+    top: 620px;
+    //right: 50px;
+    left: 70px;
+    bottom: 40px;
+    width: 150px;
+    //height: 100px;
+    //border: 3px solid #73AD21;
+}
+</style>
+
+
+
+
+
+<script>
+//==================================
+/*   setmemory()   set memory   */
+function setmemory(v1,v2){  //key and value both strings
+   eval("localStorage.setItem('" + v1 + "','"  +  v2 + "'" + ");" );
+} 
+
+
+
+
+
+//videos.js
+/*     left nav data for list and YouTube link         */
+/*     use two arrays for simplicity                    */
+/* put "empty" in video_name_array[1] if no videos yet   */
+ /*      video titles of skits  Names Listed Here                     */
+ // WARNING: Size limit for video name is 24 including with spaces
+ //            including spaces "0123456789012345678901234"
+    var video_name_array  = new Array();
+        video_name_array[0]  = "0"; //this must always be 0
+        video_name_array[1]  = "Enemy In The Office";  //put "empty" here if no videos yet
+        video_name_array[2]  = "Change Your Tone";
+        video_name_array[3]  = "It's All About The Shoes";
+        video_name_array[4]  = "The 'R' Word";
+        video_name_array[5]  = "Russian Tornado";
+       // video_name_array[6]  = "California Secedes";
+        //video_name_array[7]  = "Nevada Gold";
+        //video_name_array[8]  = "Utah Secedes";
+       // video_name_array[9]  = "Oregon Secedes";
+        //video_name_array[10] = "Washington Secedes";
+        //video_name_array[11] = "There Is No Try";
+       // video_name_array[12] = "Do Or Do Not";
+       // video_name_array[13] = "Fortune Favors";
+       // video_name_array[14] = "The Brave";
+
+/*
+videos page sept 17th sunday
+
+work on hide list/show list
+when in hide list mode need to show currently playing video
+
+to move video window over to left side
+that would be cool and slick.
+sunday, sept 17th
+
+
+*/
+   
+    
+    
+    // I need to make an array to determine the longest item in the array
+    // to determine how many &nbsp; to put in the dynamic output.
+    
+    //////==============================================
+ 
+    
+    /*        link to video        this is where the YouTube links go     */
+                     
+    var video_link_array = new Array();  //=====> make sure url ends with ";
+        video_link_array[0]  = "0";  //this must remain 0 don't change it!
+        video_link_array[1]  = "https://www.youtube.com/embed/1UQ4WqQe4W0"; 
+        video_link_array[2]  = "https://www.youtube.com/embed/B7hVxCmfPtM"; 
+        video_link_array[3]  = "https://www.youtube.com/embed/9H6muyZjms0"; 
+        video_link_array[4]  = "https://www.youtube.com/embed/QcsbKiyTvcw";
+        video_link_array[5]  = "https://www.youtube.com/embed/cOYpPzOMKwI"; 
+      //  video_link_array[6]  = "https://www.youtube.com/embed/9xnLnDa04dM"; 
+      //  video_link_array[7]  = "https://www.youtube.com/embed/QcsbKiyTvcw"; 
+      //  video_link_array[8]  = "https://www.youtube.com/embed/1UQ4WqQe4W0"; 
+      //  video_link_array[9]  = "https://www.youtube.com/embed/9H6muyZjms0"; 
+       // video_link_array[10] = "https://www.youtube.com/embed/9xnLnDa04dM"; 
+       // video_link_array[11] = "https://www.youtube.com/embed/9H6muyZjms0"; 
+       // video_link_array[12] = "https://www.youtube.com/embed/WaA8a_ESgRI"; 
+       // video_link_array[13] = "https://www.youtube.com/embed/B7hVxCmfPtM"; 
+        //video_link_array[14] = "https://www.youtube.com/embed/1UQ4WqQe4W0"; 
+       
+       //link for opening intro to the cast video
+    var intro_video_array = new Array();
+        intro_video_array[0] = "0";  //this must remain 0 don't change it!
+        intro_video_array[1] = "https://www.youtube.com/embed/9xnLnDa04dM";
+        
+ //this is the message in the yellow box when the videos page is opened 
+ // to instruct the user how to use this page with a happy yellow message box which balances the page too
+ 
+ 
+   var words_on_main_page = "Tap a video title to select it.<br>&nbsp;&nbsp;Then tap on the video to start it.";
+  
+   var more_words  = "Our first video skit will be featured<br> in";
+       more_words += "&nbsp;early December 2017. <br> This  funny skit ";
+       more_words += "that is based on the <br>contradictions in the Media.";
+       more_words += "<br><br>Our material is based on the media but with a bent ";
+       more_words += "towards double meaning and ample contradictions.";
+       
+    
+    
+    
+    
+    
+ 
+/* =================================================================|
+                   fillmessageboxbeneathvideo()                     |
+         feeds the words into white rectangle beneath the video     |
+         after each movie title is clicked on in the left nav       |
+                                                                    |
+   =================================================================|
+*/
+
+/*  you can have a message written beneath a video for some details that 
+    are easy to read and notice for the viewer. the first one is 0 which is the 
+    opening video to meet the actors and actresses when the video page first opens
+    and then they start from 1 ... n  and so the 1st video would correspond with
+    the if below that says == "1" and you just add the words you want to write. */
+
+function fillmessageboxbeneathvideo(words){
+  var testervar = words;
+  if(testervar  == "0"){ //then  //this is for the introduction video on the opening of the page.
+  var words = '&nbsp;This is our introduction video so you can meet us out of costume. We introduce ourselves and  <br>' +
+            '&nbsp;we let you know our experience and expertise in the realm of comedy and why we like comedy.' ;
+   }//end if
+  
+   if(testervar == "1"){ //then//   first video in list
+   var words = '01 California breaks free to become separate country to';
+            
+   }//end if
+    if(testervar == "2"){ //then   
+   var words = '02 California breaks free to become separate country to';
+            
+   }//end if
+    if(testervar == "3"){ //then   
+   var words = '03 California breaks free to become separate country to';
+            
+   }
+    if(testervar == "4"){//then
+   var words = '04 California breaks free to become separate country to';
+           
+   }//end if
+    if(testervar == "5"){//then
+   var words = '05 California breaks free to become separate country to';
+            
+   }//end if
+    if(testervar == "6"){//then
+   var words = '06 California breaks free to become separate country to';
+            
+   }//end if
+   
+    if(testervar == "7"){//then
+   var words = '07 California breaks free to become separate country to';
+             
+   }//end if
+   
+    if(testervar == "8"){//then
+   var words = '08 California breaks free to become separate country to';
+             
+   }//end if
+   
+    if(testervar == "9"){//then
+   var words = '09 California breaks free to become separate country to';
+             
+   }//end if
+   
+    if(testervar == "10"){//then
+   var words = '10 California breaks free to become separate country to';
+             
+   }//end if
+    
+     if(testervar == "11"){//then
+   var words = '11 California breaks free to become separate country to';
+           
+   }//end if
+    
+     if(testervar == "12"){//then
+   var words = '12 Long live Saturday Night Live separate';
+            
+   }//end if
+    
+     if(testervar == "13"){//then
+   var words = '13 Ask what your country can do for you ' ;
+            
+   }//end if
+    
+     if(testervar == "14"){//then   **DON'T EXCEED THE LENGTH OF THESE SENTENCES FOR THE BOX. ONLY 1 short LINE**
+   var words = '14 Chariotts of the gods separate country ';
+             
+   }//end if
+    // end of IFS
+
+/*
+     Please don't touch anything beneath this line                                 */
+//===================================================================================
+
+ var iframe = document.getElementById('msgwindow');
+ var html_string = '<html><head><style>';
+     html_string += '</style></head><body>';
+     html_string += "<table style='border: 1px solid #D8D8D8;' width = 330 bgcolor=white>";
+     html_string += "<tr><td><font face='Arial'><font size=1>";
+     html_string +=  words;  //white box words beneath YouTube video
+     html_string += "</font></td></tr></table>";
+     html_string += "</body></html>";
+ 
+  var iframedoc = iframe.document;
+  if (iframe.contentDocument)
+    iframedoc = iframe.contentDocument;
+  else if (iframe.contentWindow)
+    iframedoc = iframe.contentWindow.document;
+
+  if (iframedoc) {
+    iframedoc.open();
+    iframedoc.writeln(html_string);
+    iframedoc.close();
+  } else {
+   //do nothing
+  }
+}//end funciton 
+
+
+
+
+
+
+
+                              
+///=======================================================
+//   AutoPlay Memory for starting videos automatically
+//   make it work  by clicking on the word OFF and On
+//   turns the radio button on or off.
+function loadradiobutton(){
+   window.document.tester.radiobox.value = 'off';  // Default setting
+   //then I would have to  access this to load the iframe after this function
+}//end function
+
+
+
+
+
+
+function autoplayon(){
+    window.document.tester.radiobox.value = 'on';
+}//end function
+
+
+
+
+
+function autoplayoff(){
+  window.document.tester.radiobox.value = 'off';
+}//end function
+
+
+
+
+
+
+
+
+
+
+
+
+//================================================================
+ 
+  /* -------------------------------------------------------------------              
+     this is called when a left nav video title is selected;
+     it triggers makevideowindow() -the appropriate video is then played based on the sequence number in the list when it was generated
+    --------------------------------------------------------------------
+  */  
+function jsfunction(x){
+     makevideowindow(x) 
+}
+
+
+
+function setflag(){
+setmemory('recent_page_memory_flag','videos');
+} //end func
+
+
+
+//onload fill with message
+//this is what needs to be put back 
+/* PUT MESSAGE IN MAIN PAGE */
+function putmessageinmainpage(){ //putmessageinmainpage
+
+setflag();
+
+
+//step 1: get the DOM object of the iframe. THIS IS IT
+  var iframe = document.getElementById('videowindow');
+  var html_string = '<html><head><style>';
+     html_string += '</style></head><body>';   //this is the light yellow rectangle
+     html_string += "<table style='border: 1px solid #D8D8D8;' width = 230 bgcolor=lightyellow>";
+     html_string += "<tr><td><font face='Arial'><font size=2>&nbsp;&nbsp;";
+     html_string +=  words_on_main_page;  //yellow box 
+     html_string += "</font></td></tr></table>";
+     html_string += "<br><br>";
+     html_string += "<table border=0 width = 230 bgcolor=white>";
+     html_string += "<tr><td><font face='Arial'><font size=2>&nbsp;&nbsp;";
+     html_string +=  more_words;        //white box words 
+     html_string += "</font></td></tr></table>";
+     
+     
+     
+     html_string += "</body></html>";
+ 
+  var iframedoc = iframe.document;
+  if (iframe.contentDocument)
+    iframedoc = iframe.contentDocument;
+  else if (iframe.contentWindow)
+    iframedoc = iframe.contentWindow.document;
+
+  if (iframedoc) {
+    iframedoc.open();
+    iframedoc.writeln(html_string);
+    iframedoc.close();
+  } else {
+   //do nothing
+  }
+}//end funciton 
+
+
+
+
+//maybe I can put a div
+
+
+
+
+
+
+
+
+
+//onload fill web page with this starter video to introduce the actors and actresses
+
+function introvideo(){
+//step 1: get the DOM object of the iframe. THIS IS IT
+  var iframe = document.getElementById('videowindow');
+  var html_string = '<html><head></head><body bgcolor=white> ';
+     html_string += '<iframe width="366" height="350" src="';
+     
+/*   intro video meet the team for when video page first opens it loads   */
+     html_string +=  intro_video_array[1];   //stanford;
+     html_string += '" frameborder="0"  scrolling = "no" allowfullscreen></iframe>';
+     html_string +=  '</body></html>';
+
+var iframedoc = iframe.document;
+  if (iframe.contentDocument)
+    iframedoc = iframe.contentDocument;
+  else if (iframe.contentWindow)
+    iframedoc = iframe.contentWindow.document;
+
+  if (iframedoc) {
+    // Put the content in the iframe
+    iframedoc.open();
+    iframedoc.writeln(html_string);
+    iframedoc.close();
+  } else {
+   //do nothing
+  }//end if
+  
+  fillmessageboxbeneathvideo(0);
+}//end function 
+
+
+
+
+
+
+
+
+
+/* =================================================================|
+                      makevideowindow(cc)                           |
+                                                                    |                                              |
+         This function is the algorithm that makes this site        |
+         a dream. Nothing else matters as much as this one so       |
+         don't mess with it ever.                                   |
+         links to videos are fed in from arrays and then            |
+        a flag is looked at to determine if autostart is on         |
+        or off. Then it determines which video name has been        |
+        clicked(uses list sequence number) on in the left nav       | 
+         and based on that selection                                |
+        dynamic HTML is used to construct the html for the          |
+        iframe that has the YouTube link fed into it to play.       |                                             
+         WARNING:THIS IS A CRITICAL FUNCTION DON'T TOUCH AT ALL     |
+                                                                    |                                                           |
+   =================================================================|
+*/
+/* =============================================================== */
+ //  This is the important  f u n c t i o n    for making videos
+/* =============================================================== */  
+
+//makelogowindow(); //makes beach ball logo
+
+function makevideowindow(cc) {
+var testervar = cc;
+ //step 1: get the DOM object of the iframe. 
+   var iframe = document.getElementById('videowindow');
+  
+/* ====== begin  autoplay code ========================== */
+    var play_flag;
+  var settings= window.document.tester.radiobox.value;
+  if (settings =="on"){//then
+      play_flag = "true";
+  }else{
+      play_flag = "false";
+  } //end if
+  
+ //=======end autoplay code ==============================  
+ var html_string = '<html><head><style>';
+     html_string += '</style></head><body bgcolor=white> ';
+     html_string += '<iframe width="366" height="350" src="';
+     
+    /*------------------------------------------------------
+    YouTube link inserted here based on video number (address)
+      ---------------------------------------------------------
+    */
+     
+    if (testervar == "1"){//then
+         html_string +=  video_link_array[1];
+    }//end if
+    if (testervar == "2"){//then
+         html_string +=  video_link_array[2];
+    }//end if
+    if (testervar == "3"){//then
+         html_string +=  video_link_array[3];
+    }//end if
+    if (testervar == "4"){//then
+         html_string +=  video_link_array[4];
+    }//end if
+    if (testervar == "5"){//then
+         html_string +=  video_link_array[5];
+    }//end if
+    if (testervar == "6"){//then
+         html_string +=  video_link_array[6];
+    }//end if
+    if (testervar == "7"){//then
+         html_string +=  video_link_array[7];
+    }//end if
+    if (testervar == "8"){//then
+         html_string +=  video_link_array[8];
+    }//end if
+    if (testervar == "9"){//then
+         html_string +=  video_link_array[9];
+    }//end if
+    if (testervar == "10"){//then
+         html_string +=  video_link_array[10];
+    }//end if
+    if (testervar == "11"){//then
+         html_string +=  video_link_array[11];
+    }//end if
+    if (testervar == "12"){//then
+         html_string +=  video_link_array[12];
+    }//end if
+    if (testervar == "13"){//then
+         html_string +=  video_link_array[13];
+    }//end if
+    if (testervar == "14"){//then
+         html_string +=  video_link_array[14];
+    }//end if
+    
+    //  play_flag test if true turn on autoplay on videos
+  //////////////////////////////////  
+   if( play_flag == "true"){//then
+       html_string +=  "?autoplay=1";
+    } //end if
+  ////////////////////////////////// //
+    html_string += '" frameborder="0"  scrolling = "no" allowfullscreen></iframe>';
+    html_string +=  '</body></html>';
+
+  var iframedoc = iframe.document;
+  if (iframe.contentDocument)
+    iframedoc = iframe.contentDocument;
+  else if (iframe.contentWindow)
+    iframedoc = iframe.contentWindow.document;
+
+  if (iframedoc) {  
+    // Put the content into the iframe
+    iframedoc.open();
+    iframedoc.writeln(html_string);
+    iframedoc.close();
+  } else {
+   //do nothing
+  }//end if
+   fillmessageboxbeneathvideo(testervar);
+   //this function is called at the end so that the grey box  below the video
+   //isn't  loaded till the video is loaded.
+}//end funciton 
+
+///////////////// creating logo in hidden frame  id="logo"
+
+
+//====================================================================
+
+
+
+   //this function is called at the end so that the grey box  below the video
+   //isn't  loaded till the video is loaded.
+//}//end function 
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================================================|
+                                                                    |
+         TOP NAV NAVIGATION  don't ever touch this code it's        |
+         incredibly sensitive and makes the tabs work nicely        |
+                                                                    |
+   =================================================================|
+*/
+//      TABS NAVIGATION CODE 
+
+
+	
+var prevRow = null;
+
+//TOGGLE FUNCTION  LEFT NAV  =====================================
+function toggle(it){
+
+//video title number clicked on left nav
+var starbucks = window.document.tester.first.value; 
+
+/* --------------------------------------------------------------
+   for loop one iteration and break if true to skip the rest
+   this is a fix to a usability bug of a user clicking
+   on a selected title in left nav that has already been selected
+   so that it remains blue and doesn't fire off functions
+   to reload the already currently playing video
+   Also fixes the bug of the selected video title becoming unselected and stopping the video
+    ---------------------------------------------------------------
+*/
+
+//LOOP   //one time thru loop  being used to break if video title already clicked 
+ for (var i = 0; i < 1; i++){ //this is due to the fact that JS doesn't have a goto or jump
+ var alpha = window.document.tester.first.value;
+ var beta  = window.document.tester.second.value; 
+ 
+ /*
+     CONDITION TEST BELOW TO JUMP OUT OF LOOP IF USER CLICKS
+     ON SELECTED VIDEO NAME THAT'S ALREADY PLAYING AND NAME IS BLUE
+     IF NOT THE SAME THEN FUNCTION RUNS NORMALLY
+     
+     
+ *//* BREAKS OUT OF LOOP IF TRUE AND THEY ARE THE SAME */
+ if(alpha == beta){//then     //if this item is already selected skip to bottom.   
+     break; // jump down to bottom of LOOP bypassing changing selected video 
+ }else{
+  //do nothing flow proceeds downwards
+ }//end comparison if selected item clicked on again
+ 
+ //Radiation Code do not touch it controls the light change on left nav!!
+  if (it.className.substring(0, 3) == "sel"){  //blue
+       it.className = it.className.substring(3, 6);
+     prevRow = null;
+ }else{
+      it.className = "sel" + it.className;
+     if (prevRow != null){
+       prevRow.className = prevRow.className.substring(3, 6);
+    }
+     prevRow = it;
+    }
+  //////////////// end of radioactive code for left nav  ///////////////////////////
+  
+    jsfunction(starbucks); //uses sequence number in list
+    // puts value in field 1 into field 2
+      window.document.tester.second.value = window.document.tester.first.value; //check if this stays here or goes lower
+  } //end LOOP  ====================
+ 
+ // bypass complete end of loop
+ 
+    //test if no value in second field meaning the video has not been clicked yet
+    var leftnavmemory = window.document.tester.second.value; //value for left menu memory
+    if(leftnavmemory == undefined){ //then //if second field is empty test
+    //proceed to fill the second field with data in one's field
+    //if second field is empty with no value then it's force fed the value from the first memory field
+       window.document.tester.second.value = window.document.tester.first.value
+     } //end if
+} //end function
+
+
+//determines which video title has just been clicked
+function test(x){//this is the first function fired off when clicking on a video title
+   window.document.tester.first.value = x;
+} //end function
+
+
+
+// end of videos.js
+
+
+//function open_menu(){
+ // window.location.href = "iphone_hamburger_menu.html";
+//}
+
+
+
+/* NAV MENU HAMBURGER OVERLAY */
+function navmenu(){
+   //alert("testing menu system");
+} //end function
+
+
+  function open_menu(){
+  hamburger_id_of_page_came_from();
+}
+//----
+
+  //########################################
+//     HAMBURGER ID OF PAGE CAME FROM 
+//#########################################
+function hamburger_id_of_page_came_from(){
+var this_page = "5";     // videos page on iphone                    
+var page_id   =  this_page;                                               
+localStorage.setItem('fedex',page_id);  
+var smarty    = localStorage.getItem('fedex');                                                     
+ window.location.href = "iphone_hamburger_menu.html";                                           
+} //end                                                        
+//---------------------                                                    
+      
+</script>
+</head>
+<body onload="putmessageinmainpage()">
+
+
+<table width = 500>
+<tr><td width=25 height = 18 valign=bottom align=left>
+<a href='#' onclick='open_menu();return false;'>
+<img src="hamburger2.jpg" alt="navigation" height="16" width="20"></a>   </td>
+<td width = 95></td><td><font face="Menlo"><font size=4>Modern Day News&nbsp;<font color=mediumpurple><font size=1><b></b></font></font></td></tr>
+</table>
+
+
+
+<table   CELLPADDING='3' style='border-collapse:collapse;border: 
+1px solid black; '  width = 410  border = 1 bgcolor=white  >
+<tr><td  align=center><font size=1><font face='Menlo'><a href='iphone_home.html' 
+style='display:block;text-decoration:none'><FONT COLOR=BLACK>Home</a></td>
+
+
+     <td align=center><font size=1><font face='Menlo'><a href='iphone_characters.html'
+      style='display:block;text-decoration:none'>Characters</a></td>
+      
+     <td align=center ><font size=1><font face='Menlo'><a href='iphone_news.html' 
+     style='display:block;text-decoration:none'>News</a></td>
+     
+     <td align=center ><font size=1><font face='Menlo'><a href='iphone_videos.html' 
+     style='display:block;text-decoration:none'>Videos</a></td>
+     
+  
+     
+    <td align=center><font size=1><font face='Menlo'><a href='iphone_merchandise_filter.html' 
+     style='display:block;text-decoration:none'>Merchandise</a></td>
+     
+      <td align=center><font size=1><font face='Menlo'><a href='iphone_aboutus.html'
+      style='display:block;text-decoration:none'>About Us</a></td>
+     
+     <td align=center><font size=1><font face='Menlo'><a href='iphone_contactus.html'
+      style='display:block;text-decoration:none'>Contact Us</a></td>
+     </tr></table>
+<!-- here -->
+<table><tr><td height=1></td></tr></table>
+<table border=0 bgcolor=white width = 400 ><tr><td align=left>
+
+
+
+<!--- ====  BEGIN  List of Videos in Left Nav ============-->
+<table  width=150 border=0 bgcolor=white>
+<tr bgcolor=white><td valign=top align=left bgcolor=white><table height=25 bgcolor=white ><tr><td></td></tr></table>
+<!--<table width = 130  style="border: 1px solid #D8D8D8;" bgcolor = palegoldenrod ><tr>
+<td bgcolor = palegoldenrod align=center><font size=1><font face= "Menlo">
+<font color=black>&nbsp;<b>Videos List</b>&nbsp;&nbsp;</font></td></tr></table>-->
+<table id ="special" border=0 spacing = 0 width = 150 style="border: 1px solid #D8D8D8;">
+<script>
+var html_string = " ";
+
+//===========================
+/*
+      dynamic code START  script     THIS BUILDS THE LEFT NAV DYNAMICALLY 
+      START LOOP TO BUILD LEFT NAV VIDEO LIST DYNAMICALLY AND ADD LINKS AND FUNCTION CALLS
+*/
+
+for (var i = 0; i < video_name_array.length; i++) { //this loops thru the entire video_name_array() length
+ if(i == 0){ //then looking at video_name_array[0] first
+        continue;  //jump back up to top of loop for next iteration
+  } //end if       //to skip by default the first array item which is dummy data of 0
+// IF CONDITION TRUE IF NO VIDEOS YET displays empty list
+//===========================    IF NO VIDEOS SKIP TO BOTTOM OF LOOP
+if (video_name_array[1] == "empty"){ //then the array has no data added yet so skip out of loop
+   break; //exit loop   THIS MEANS THAT THE VIDEO LIST IS EMPTY
+ }//end if
+   
+   
+   // IF THERE ARE NAMES IN THE LIST THEN RUN THIS CHUNK OF CODE
+//number starting with 1 for counter and then just the name of the video
+html_string +=  "<tr><td  nowrap class='odd' onclick='test(";
+html_string +=  i;   //counter number
+html_string +=  ");toggle(this);' height= '5'><font face= 'Menlo'>";
+html_string +=  "<a href='#' a:hover  STYLE='text-decoration:none' style='color:black'onclick='' >";
+html_string +=  "<font size=1><font color=black>";
+html_string +=  video_name_array[i];  //name of video for left nav grabbed from array of video titles based on sequence number in list of array above
+html_string +=  "</a></font></td></tr>";
+ } //END of LOOP   END OF LOOP  END OF LOOP
+///////////////////////////====================================
+/*
+          IF NO MOVIES IN LIST THIS CODE BELOW RUNS
+*/
+
+// ONLY HERE IF THERE IS NO DATA AND CONDITION SET TO EMPTY
+ if(video_name_array[1] == "empty"){
+
+html_string +=  "<tr><td   class='odd' ";
+html_string +=  " height= '5 '><font face= 'Menlo'>";
+html_string +=  "&nbsp;&nbsp;";
+html_string +=  "Filming First Video";  //name of video for left nav grabbed from array of video titles based on sequence number in list of array above
+html_string +=  "&nbsp;&nbsp;</font></td> </tr>";
+
+}//end if for empty condition
+
+document.write(html_string);   //dynamically write the loop generated code here of the video list for left nav
+//==================================================== 
+
+
+</script>
+
+<!-- dynamic code END LOOP      -->
+<!--  generated html            -->
+<!-- dynamic code END </script> -->
+
+</table></td>
+<td valign=top align=left><!-- IFRAMES ARE HERE encased in table code, one for the video window and one for msgwindow -->
+<!--<table height=0  bgcolor=white><tr><td></td></tr></table>--><br>
+<iframe id= "videowindow" width="366" height="350" src="about:blank" frameborder="0" scrolling="no" allowfullscreen></iframe><br>
+<iframe id= "msgwindow"  src="iphone_makelogo.html"  width="350" height="200" src="about:blank" frameborder="0" scrolling="no" ></iframe>
+
+</td></tr><!-- message window is below the video player -->
+</table></td><td>
+
+
+<table><tr><td></td></tr>   
+</table></td></tr><tr><td></td></tr></table>
+
+<!--- ====  END of List of Videos in Left Nav ============-->
+
+
+
+<!--  form   -->
+<form name = "tester">
+<input type = hidden  name = "radiobox" size = 4>
+<input type = hidden  name = "first" size = 3>
+<input type = hidden  name = "second" size = 3>
+</form>
+</div>
+<br><br>
+<!-- spacer -->
+<table height = 10 width = 100 bgcolor=white><tr><td>&nbsp;</td></tr></table>
+<table width = 330><tr><td height = 2 align=center><font size=1><font color=lightgrey>Copyright 2018 Modern Day News</font></td></tr></table>
+</body>
+</html>

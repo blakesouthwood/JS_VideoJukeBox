@@ -1,0 +1,506 @@
+
+<!--  iphone test -->
+<!DOCTYPE html>
+<html>
+<title>Modern Day News</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="/lib/w3-theme-teal.css">
+<body style="max-width:600px">
+
+
+
+<style>
+
+.bronze-box {   /*  make this size  */
+  position: absolute;
+  z-index: 15; 
+  background: white;  
+  width: 2%;
+  left: 2%;
+  top: 4px;
+  height: -34em;
+  opacity: 1.0;
+}
+
+
+div.static {
+     position: relative;
+    left: 100px;
+}
+
+div.toplogo {
+     position: relative;
+    left: 150px;
+    top: 50px;
+}
+
+
+
+div.circlelogo {
+     position: absolute;
+    left: 10px;
+}
+
+
+div.static1 {
+     position: relative;
+    left: 350px;
+}
+
+div.staticiframe {
+     position: relative;
+    left: 25px;
+}
+
+
+
+
+.silver-box {   /*  make this gender     */
+  position: absolute;
+  z-index: -1; /* put .green-box above .dashed-box */
+  background: white;  /* lightgreen  */
+  width: 28%;
+  left: 23.5%;
+  top: 49px;
+  height: -4em;
+  opacity: 1.0;
+  overflow: visible;
+}
+
+
+
+
+.showbox {
+    height:10px;
+    width:10px;
+    background: orange; //#00ff00; //powerderblue
+    border: 2px solid #fff;
+    border-radius: 25px;
+    box-shadow: 0px 1px 5px #888888;
+    transform-origin:50% 50%;
+    transform:scale(1);
+    animation: pulse 0.6s infinite linear alternate;
+    -webkit-animation: pulse 0.6s infinite linear alternate;
+}
+@keyframes pulse {
+    to {
+        transform:scale(1.3);
+    }
+}
+@-webkit-keyframes pulse {
+    to {
+        transform:scale(1.3);
+    }
+}
+
+ .bg{background-color:yellow; !important;}
+
+
+.zu
+</style>
+
+<script>
+
+
+
+
+//================================
+/*    setmemory() set memory    */
+
+function setmemory(v1,v2){  //key and value both strings
+eval("localStorage.setItem('" + v1 + "','"  +  v2 + "'" + ");" );
+} // end func
+
+
+localStorage.setItem("deleteditem","false");
+//THIS IS HERE FOR A REASON
+
+
+
+    function zapishly(){/// this one is the one that I am going to put the hamburger
+     var jumba = "";
+         jumba += "<div id ='trainwhistile'><table width = 30 border=0  bgcolor= white ";
+         jumba += "CELLPADDING='1'>";
+         jumba += "<tr onclick='moonblast_darkside_back()' bgcolor=white  >";
+         jumba += " <td align=center><a href='#' style='text-decoration:none'>";
+         jumba += "<font face='Menlo'><font color=black>";
+         jumba += "<a href='#' onclick='navmenu();moonblast_darkside_back();return false;'>";
+         jumba += "<img src='hamburger2.jpg' alt='' height='20' width='20'>";
+         jumba += "</td></tr>";
+         jumba += "</table></span></div></div>";
+         document.getElementById("trainwhistle").innerHTML = jumba; 
+      }
+ 
+
+
+//==================================
+/*    getmemory()   get memory   */
+
+function getmemory(x1){  //using the key it returns the value
+  eval("var atm = localStorage.getItem(" + "'" + x1 + "');" );
+  return atm;
+}//end func
+
+
+
+
+
+
+
+
+//#################################
+/*          DELETE MEMORY         */
+//##################################
+function deletememory(x1){
+   eval("localStorage.removeItem('" + x1 + "');");
+}//end func
+//-------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+also program it so that if menu is displayed
+and the user clicks on the hamburger it closes the menu
+and returns to the page.
+
+when someone arrives on the menu hamburger page
+it needs to select the correct tab above and give it the green color.
+
+
+the tricky part is knowing what page a person was on
+when they clicked the hamburger icon so  I will
+create an id name for each page  for simplicity
+like I did with row remainder in coffeeplant.
+
+I need a Page_ID_Name for each specific page.
+
+
+
+I will need an "on" "off" switch for the burger menu
+if the burger menu is on or off and then create the
+necessary behavior
+
+so if menu is on and user clicks on burger again it returns
+to the page that they just came from just like when they click the red X.
+
+
+
+*/
+//rename it something other than tahoe
+// this is how I get the name of the web page that the person came
+// from when they clicked on the hamburger logo
+
+
+
+
+
+
+
+//###################################
+// HOLLYWOOD (PLAYS MOVIE) FROM LINK
+//###################################
+function hollywood(x){
+var this_movie = x;  //for the home page 
+//file name for storage for the movie number in the sequence
+localStorage.setItem('popcorn', this_movie); 
+window.location.href = "iphone_autoplay.html"; //this then loads iphone_autoplay.html
+}
+
+
+
+
+//####################
+//   GET PAGE INFO 
+//####################
+function get_page_info(){
+
+
+
+} //end function
+//------------------------
+
+ 
+ 
+
+function close_menu(){ //red box do nothing return to where you came from 
+//later add code here to go back to where they came from
+window.location.href = "iphone_home.html";
+}
+
+function go_home(){
+window.location.href = "iphone_home.html";
+}
+
+
+
+function go_characters(){
+    window.location.href = "iphone_characters.html";
+}
+
+function go_news(){
+    window.location.href = "iphone_news.html";
+}
+
+
+function go_videos(){
+window.location.href = "iphone_autoplay.html";  //set to 5 by default
+}
+
+function go_upcomingvideos(){
+window.location.href = "iphone_upcomingvideos.html";
+}
+
+function go_merchandise_filter(){
+window.location.href = "iphone_merchandise_filter.html";
+}
+
+function go_merchandise_shop(){
+window.location.href = "iphone_merchandise_shop.html";
+}
+
+function go_basket(){
+   window.location.href = "iphone_merchandise_basket.html";
+}
+
+function go_checkout(){
+window.location.href = "iphone_merchandise_checkout.html";
+}
+
+function go_aboutus(){
+window.location.href = "iphone_aboutus.html";
+}
+
+function go_contactus(){
+window.location.href = "iphone_contactus.html";
+}
+
+
+ function setmemory(v1,v2){  //key and value both strings
+   eval("localStorage.setItem('" + v1 + "','"  +  v2 + "'" + ");" );
+} 
+
+
+
+//this was iphone_video_menus.html
+// and just changed name to iphone_videos.html
+
+//#######################################
+//      OPEN MENU 
+//#######################################
+function open_menu(){ 
+  hamburger_id_of_page_came_from();
+}
+//-------------------
+
+
+
+
+
+
+//########################################
+//     HAMBURGER ID OF PAGE CAME FROM 
+//#########################################
+function hamburger_id_of_page_came_from(){
+var this_page = "4";    
+setmemory('fedex',this_page);                                            
+window.location.href = "iphone_hamburger_menu.html";                                           
+  } //end                                                        
+//---------------------                                                    
+   
+   
+   
+   //################################
+   //      CLOSE UPCOMING VIDEOS 
+   //################################
+   function close_upcoming_videos(){ 
+   var skate = "";
+    skate += "<div id ='upvideos'>";
+    skate += "<table width = 400 bgcolor=white ><tr><td width = 65>&nbsp;</td><td align = left valign=top>";
+    skate += "<table width = 280 border=0  bgcolor= white CELLPADDING='8' "; 
+    skate += "  style='border-collapse:collapse;border: 1px solid #e8e8e8;'>";
+    skate += "<tr  bgcolor=lightgrey  ><td  align=center bgcolor=white >";
+    skate += "<a href='#' onclick='open_upcoming_videos(); return false;' style='display:block;text-decoration:none'>";
+    skate += "<font face='Menlo'><font size=3><font color=lightgrey>Upcoming Videos</a>";
+    skate += "</td></tr></table></td></tr></table></div>"; 
+    document.getElementById("upvideos").innerHTML = skate;
+   }//end function
+   //-------------------------------------
+   
+   
+   
+   //##############################
+   //     OPEN UPCOMING VIDEOS
+   //###############################
+   function open_upcoming_videos(){
+    var skate = "";
+     skate += "<div id ='upvideos'>";
+     skate += "<table width = 400 bgcolor=white ><tr><td width = 65>&nbsp;</td><td align = left valign=top>";
+     skate += "<table width = 280 border=1  bgcolor= white CELLPADDING='8' ";
+     skate += "  style='border-collapse:collapse;border: 1px solid #e8e8e8;'>";
+     skate += "<tr  bgcolor=lightgrey  ><td  align=center bgcolor=#e8e8e8 >";
+     skate += "<a href='#' onclick='close_upcoming_videos(); return false;' style='display:block;text-decoration:none'>";
+     skate += "<font face='Menlo'><font size=3><font color=black>Upcoming Videos</a>";
+     skate += "</td></tr> ";
+     //skate += "<tr bgcolor=white  ><td align=left>";
+    // skate += "<font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;Big Lies Matter";
+    //skate += "</td></tr>";
+     skate += "<tr bgcolor=white  ><td align=left>";
+     skate += "<font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;Damn Statues";
+     skate += "</td></tr>";
+     skate += "<tr bgcolor=white  ><td align=left>";
+     skate += "<font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;Covering The Refugees";
+     skate += "</td></tr>";
+     skate += "<tr bgcolor=white  ><td align=left>";
+     skate += "<font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;Celebrate Diversity";
+     skate += "</td></tr>";
+     skate += "<tr bgcolor=white  ><td align=left>";
+     skate += "<font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;We Don't Attack Our Own";
+     skate +="</td></tr>";
+     skate += "<tr bgcolor=white  ><td align=left>";
+     skate += "<font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;Black Hitler";
+     skate += "</td></tr>";
+     skate += "</table></td></tr></table></div>";
+     document.getElementById("upvideos").innerHTML = skate;
+   } //end function
+   //------------------------------------
+   
+   //##################################
+   //  ######  CLEAR THE CACHE ########
+   //##################################
+   // March 8, 2018    2PM Oregon Time
+   //turned off
+   function clear_the_cache(){
+     cache.delete();         //attempt 2
+     return;
+   }
+   
+</script>
+</head>
+<body onload = "close_upcoming_videos(); "> 
+
+
+
+<table width = 500>
+<tr><td width=25 height = 18 valign=bottom align=left>
+<a href='#' onclick='open_menu();return false;'>
+<img src="hamburger2.jpg" alt="navigation" height="16" width="20"></a>   </td>
+<td width = 95></td><td><font face="Menlo"><font size=4>Modern Day News&nbsp;<font color=mediumpurple><font size=1><b></b></font></font></td></tr>
+</table>
+
+
+<table   CELLPADDING='3' style='border-collapse:collapse;border: 
+1px solid black; '  width = 410  border = 1 bgcolor=white  >
+<tr><td  align=center><font size=1><font face='Menlo'><a href='iphone_home.html' 
+style='display:block;text-decoration:none'><FONT COLOR=BLACK>Home</a></td>
+
+<td align=center bgcolor=palegreen><font size=1><font face='Menlo'><a href='iphone_videos.html' 
+style='display:block;text-decoration:none'>Videos</a></td>
+
+
+
+<td align=center><font size=1><font face='Menlo'><a href='iphone_characters.html'
+ style='display:block;text-decoration:none'>Characters</a></td>
+<td align=center bgcolor=white><font size=1><font face='Menlo'><a href='iphone_news.html' 
+style='display:block;text-decoration:none'>News</a></td>
+
+
+<!--
+<td align=center ><font size=1><font face='Menlo'><a href='iphone_merchandise_filter.html' 
+ style='display:block;text-decoration:none'>Merchandise</a></td>
+ -->
+ 
+ 
+<td align=center><font size=1><font face='Menlo'><a href='iphone_aboutus.html'
+style='display:block;text-decoration:none'>About Us</a></td>
+<td align=center><font size=1><font face='Menlo'><a href='iphone_contactus.html'
+ style='display:block;text-decoration:none'>Contact Us</a></td> </tr></table>
+<table><tr><td height=1></td></tr></table>
+
+
+
+
+<table border = 0 bgcolor=white width = 400 >
+<tr></table>
+<table bgcolor=white><tr><td height = 10 width = 350></td></tr> </table>
+<table width = 400 bgcolor=white ><tr><td width = 65>&nbsp;</td><td align = left valign=top>
+<table width = 280 border=1  bgcolor= white CELLPADDING='8' 
+        style='border-collapse:collapse;border: 1px solid lightgrey;'>
+        
+     
+        
+         <tr onclick='zapishly();reset_three();go_home();'  
+        bgcolor=white  ><td  align=center bgcolor=#c3fdb8 >
+        
+        <font face='Menlo'><font size=3><font color=black><b>List of Videos</b>
+       </td></tr>
+        
+        
+       
+        <tr  bgcolor=white  ><td align=left>
+        <a href='#' onclick='hollywood(1); return false;' style='display:block;text-decoration:none'>
+         <font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;Enemy In The Office</a></td></tr>
+    
+        <tr bgcolor=white  ><td align=left>
+        <a href='#'  onclick='hollywood(2);return false;' style='display:block;text-decoration:none'>
+        <font face='Menlo'> 
+        <font size=3><font color=black>&nbsp;&nbsp;Change Your Tone</a></td></tr>
+        
+        <tr bgcolor=white  ><td align=left>
+        <a href='#' onclick='hollywood(3);return false;' style='display:block;text-decoration:none'>
+        <font face='Menlo'>
+        <font size=3><font color=black>&nbsp;&nbsp;Find A Scandal</a></td></tr>
+        
+        
+        
+        <tr bgcolor=white  ><td align=left>
+        <a href='#' onclick='hollywood(4);return false;' style='display:block;text-decoration:none'>
+        <font face='Menlo'>
+        <font size=3><font color=black>&nbsp;&nbsp;The "R" Word</a></td></tr>
+        
+        
+       
+        <tr bgcolor=white  ><td align=left>
+        <a href='#' onclick='hollywood(5); return false;' style='display:block;text-decoration:none'>
+       <font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;It's All About The Shoes</a>
+       </td></tr>
+       
+          
+        <tr bgcolor=white  ><td align=left>
+        <a href='#' onclick='hollywood(6); return false;' style='display:block;text-decoration:none'>
+       <font face='Menlo'><font size=3><font color=black>&nbsp;&nbsp;Big Lies Matter</a>
+       </td></tr>
+       
+       </table></td></tr></table> 
+       
+       <br>
+       <!-- drop down venitian blinds to show upcoming videos names -->
+       <div id ='upvideos'></div>
+       
+      
+
+</body>
+</html>
