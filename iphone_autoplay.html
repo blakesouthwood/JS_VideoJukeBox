@@ -1,0 +1,1033 @@
+
+<!--  iphone test -->
+<!DOCTYPE html>
+<html>
+<title>Modern Day News</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="/lib/w3-theme-teal.css">
+<body style="max-width:600px">
+
+
+
+<style>
+
+/* videostyles.css     */
+/* mouse over link */
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:hover {
+  color: black;
+}
+
+a:active {
+  color: black;
+}
+
+
+.fixed-size-square {
+    display: table;
+    width: 20px;
+    height: 20px;
+    background: #4DF54E;
+}
+.fixed-size-square span {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    color: white
+}
+
+
+
+div.staticfun {
+     position: relative;
+    left: 50px;
+    top: 250px
+    //align left
+}
+
+
+div.static {
+     position: relative;
+    left: 190px;
+}
+
+div.static1 {
+     position: relative;
+    left: 380px;
+}
+
+
+div.menulist {
+     position: relative;
+    left: 5px;
+}
+
+
+div.staticiframe {
+     position: relative;
+    left: 25px;
+}
+
+//testing here ========================
+div.topwords {
+     position: absolute;
+    width: 500px; 
+    height: 40px;
+    left: 300px;
+    z-index: 2;
+    
+    //position:absolute; right:px; bottom:10px;
+}
+
+
+
+//css code for iframe - crossing my fingers that this puppy works
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+
+.showbox {
+    height:10px;
+    width:10px;
+    background: #7FFFD4; //#00ff00; //powerderblue
+    border: 2px solid #fff;
+    border-radius: 25px;
+    box-shadow: 0px 1px 5px #888888;
+    transform-origin:50% 50%;
+    transform:scale(1);
+    animation: pulse 0.6s infinite linear alternate;
+    -webkit-animation: pulse 0.6s infinite linear alternate;
+}
+@keyframes pulse {
+    to {
+        transform:scale(1.3);
+    }
+}
+@-webkit-keyframes pulse {
+    to {
+        transform:scale(1.3);
+    }
+}
+
+
+ 
+.zu
+
+//=======================
+// left nav css
+
+.odd {
+  background-color: white;
+}
+.evn {
+  background-color: white;
+}
+.selodd {
+  background-color: palegreen; //deepskyblue;
+}
+.selevn {
+  background-color: palegreen; //deepskyblue;
+}
+
+
+#special  
+td:hover,  td.selected{
+    background-color: #4dd2ff; //turquoise
+}
+#special td {padding: 3px;}
+
+
+ footer {
+    position: absolute;
+    left: 387px;
+    bottom: 18px;
+}
+
+ div.movietextmydiv {
+    position: absolute;
+    top: 610px;
+    width: 690px;
+    height: 50px;
+    left: 292px;
+
+}
+
+
+
+div.cool {
+    position: absolute;
+    top: 400px;
+    //right: 50px;
+    left: 200px;
+    width: 750px;
+}
+
+
+div.radiocontrolswitcher {
+    position: absolute;
+    top: 620px;
+    //right: 50px;
+    left: 70px;
+    bottom: 40px;
+    width: 150px;
+    //height: 100px;
+    //border: 3px solid #73AD21;
+}
+</style>
+
+
+
+
+
+<script>
+//==================================
+/*   setmemory()   set memory   */
+function setmemory(v1,v2){  //key and value both strings
+   eval("localStorage.setItem('" + v1 + "','"  +  v2 + "'" + ");" );
+} 
+
+
+//------------------
+function show_video_menu_list(){
+ window.location.href = "iphone_videos.html";
+}
+
+/*
+ html_string += "<a href='#' onclick='show_video_menu_list();return false;'>SHOW VIDEO MENU LIST</a
+ I need to have this turned on using a div above the iframe (only way it will show and work)
+ pure genius monday night january 15th 
+*/
+
+
+
+//videos.js
+/*     left nav data for list and YouTube link         */
+/*     use two arrays for simplicity                    */
+/* put "empty" in video_name_array[1] if no videos yet   */
+ /*      video titles of skits  Names Listed Here                     */
+ // WARNING: Size limit for video name is 24 including with spaces
+ //            including spaces "0123456789012345678901234"
+ 
+ //list of the links for the movies
+    var video_name_array  = new Array();
+        video_name_array[0]  = "0"; //this must always be 0
+        video_name_array[1]  = "Enemy In The Office";  //put "empty" here if no videos yet
+        video_name_array[2]  = "Change Your Tone";
+        video_name_array[3]  = "Find A Scandal";
+        video_name_array[4]  = "The 'R' Word";
+        video_name_array[5]  = "It's All About The Shoes";
+        video_name_array[6]  = "Big Lies Matter";
+       
+        //video_name_array[7]  = "Nevada Gold";
+        //video_name_array[8]  = "Utah Secedes";
+       // video_name_array[9]  = "Oregon Secedes";
+        //video_name_array[10] = "Washington Secedes";
+        //video_name_array[11] = "There Is No Try";
+       // video_name_array[12] = "Do Or Do Not";
+       // video_name_array[13] = "Fortune Favors";
+       // video_name_array[14] = "The Brave";
+
+/*
+videos page sept 17th sunday
+
+work on hide list/show list
+when in hide list mode need to show currently playing video
+
+to move video window over to left side
+that would be cool and slick.
+sunday, sept 17th
+
+
+*/
+   
+    
+    
+    // I need to make an array to determine the longest item in the array
+    // to determine how many &nbsp; to put in the dynamic output.
+    
+    //////==============================================
+ 
+    
+    /*        link to video        this is where the YouTube links go     */
+                     //added february 24th, 2018 and uploaded to the web.
+                     
+                     
+                     
+                     
+    var video_link_array = new Array();  //=====> make sure url ends with ";
+        video_link_array[0]   = "0";  //this must remain 0 don't change it!
+        video_link_array[1]   = "https://www.youtube.com/embed/S6A-I4Mnn2w";
+        video_link_array[2]   = "https://www.youtube.com/embed/UeOXhgAydFk"; 
+        video_link_array[3]   = "https://www.youtube.com/embed/S4ZWf2RCnQw"; 
+        video_link_array[4]   = "https://www.youtube.com/embed/w_6DubY-Qwg";
+        video_link_array[5]   = "https://www.youtube.com/embed/I-kVAE7Nydw";
+        video_link_array[6]   = "https://www.youtube.com/embed/cWA7PMTVyXE";
+       
+       //just added this one 
+        
+ /*
+        
+        video_link_array[7]   = "https://www.youtube.com/embed/I-kVAE7Nydw";
+        video_link_array[8]   = "https://www.youtube.com/embed/I-kVAE7Nydw";
+        video_link_array[9]   = "https://www.youtube.com/embed/I-kVAE7Nydw";
+        video_link_array[10]  = "https://www.youtube.com/embed/I-kVAE7Nydw";
+        video_link_array[11]  = "https://www.youtube.com/embed/I-kVAE7Nydw";
+*/
+
+
+ /*       
+ 
+
+
+ 
+ 
+        //1 enemy in th eoffice
+https://www.youtube.com/watch?v=S6A-I4Mnn2w&feature=youtu.be
+
+
+//3 change your tone
+https://www.youtube.com/watch?v=UeOXhgAydFk&feature=youtu.be
+
+
+//10 //it's all about the shoes (call it this: Find A Scandal"
+https://www.youtube.com/watch?v=S4ZWf2RCnQw&feature=youtu.be
+
+
+//11   The R word
+https://www.youtube.com/watch?v=w_6DubY-Qwg&feature=youtu.be
+
+
+//15  It's All About The Shoes
+https://www.youtube.com/watch?v=I-kVAE7Nydw&feature=youtu.be
+*/
+
+      //  video_link_array[6]  = "https://www.youtube.com/embed/9xnLnDa04dM"; 
+      //  video_link_array[7]  = "https://www.youtube.com/embed/QcsbKiyTvcw"; 
+      //  video_link_array[8]  = "https://www.youtube.com/embed/1UQ4WqQe4W0"; 
+      //  video_link_array[9]  = "https://www.youtube.com/embed/9H6muyZjms0"; 
+       // video_link_array[10] = "https://www.youtube.com/embed/9xnLnDa04dM"; 
+       // video_link_array[11] = "https://www.youtube.com/embed/9H6muyZjms0"; 
+       // video_link_array[12] = "https://www.youtube.com/embed/WaA8a_ESgRI"; 
+       // video_link_array[13] = "https://www.youtube.com/embed/B7hVxCmfPtM"; 
+        //video_link_array[14] = "https://www.youtube.com/embed/1UQ4WqQe4W0"; 
+       
+       //link for opening intro to the cast video
+    var intro_video_array = new Array();
+        intro_video_array[0] = "0";  //this must remain 0 don't change it!
+        intro_video_array[1] = "https://www.youtube.com/embed/9xnLnDa04dM";
+        
+ //this is the message in the yellow box when the videos page is opened 
+ // to instruct the user how to use this page with a happy yellow message box which balances the page too
+ 
+ 
+   var words_on_main_page = "Tap a video title to select it.<br>&nbsp;&nbsp;Then tap on the video to start it.";
+  
+   var more_words  = "Our first video skit will be featured<br> in";
+       more_words += "&nbsp;early December 2017. <br> This  funny skit ";
+       more_words += "that is based on the <br>contradictions in the Media.";
+       more_words += "<br><br>Our material is based on the media but with a bent ";
+       more_words += "towards double meaning and ample contradictions.";
+       
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+/* =================================================================|
+                   fillmessageboxbeneathvideo()                     |
+         feeds the words into white rectangle beneath the video     |
+         after each movie title is clicked on in the left nav       |
+                                                                    |
+   =================================================================|
+*/
+
+/*  you can have a message written beneath a video for some details that 
+    are easy to read and notice for the viewer. the first one is 0 which is the 
+    opening video to meet the actors and actresses when the video page first opens
+    and then they start from 1 ... n  and so the 1st video would correspond with
+    the if below that says == "1" and you just add the words you want to write. */
+
+
+
+function fillmessageboxbeneathvideo(words){
+
+
+/*
+     Please don't touch anything beneath this line                                 */
+//===============================================================================================================================
+/*
+ 
+  
+  */
+}//end funciton 
+
+
+
+
+
+
+
+                              
+///=======================================================
+//   AutoPlay Memory for starting videos automatically
+//   make it work  by clicking on the word OFF and On
+//   turns the radio button on or off.
+function loadradiobutton(){
+   window.document.tester.radiobox.value = 'off';  // Default setting
+   //then I would have to  access this to load the iframe after this function
+}//end function
+
+
+
+
+function autoplayon(){
+    window.document.tester.radiobox.value = 'on';
+}//end function
+
+
+
+
+
+function autoplayoff(){
+  window.document.tester.radiobox.value = 'off';
+}//end function
+
+
+
+//================================================================
+ 
+  /* -------------------------------------------------------------------              
+     this is called when a left nav video title is selected;
+     it triggers makevideowindow() -the appropriate video is then played based on the sequence number in the list when it was generated
+    --------------------------------------------------------------------
+  */  
+function jsfunction(x){
+     makevideowindow(x) 
+}
+
+
+
+function setflag(){
+  setmemory('recent_page_memory_flag','videos');
+} //end func
+
+
+
+//onload fill with message
+//this is what needs to be put back 
+/* PUT MESSAGE IN MAIN PAGE */
+function putmessageinmainpage(){ //putmessageinmainpage
+setflag();
+//step 1: get the DOM object of the iframe. THIS IS IT
+  var iframe = document.getElementById('videowindow');
+  var html_string = '<html><head><style>';
+     html_string += '</style></head><body>';   //this is the light yellow rectangle
+     html_string += "<table style='border: 1px solid #D8D8D8;' width = 230 bgcolor=lightyellow>";
+     html_string += "<tr><td><font face='Arial'><font size=2>&nbsp;&nbsp;";
+     html_string +=  words_on_main_page;  //yellow box 
+     html_string += "</font></td></tr></table>";
+     html_string += "<br><br>";
+     html_string += "<table border=0 width = 230 bgcolor=white>";
+     html_string += "<tr><td><font face='Arial'><font size=2>&nbsp;&nbsp;";
+     html_string +=  more_words;        //white box words 
+     html_string += "</font></td></tr></table>";
+     html_string += "</body></html>";
+ 
+  var iframedoc = iframe.document;
+  if (iframe.contentDocument)
+    iframedoc = iframe.contentDocument;
+  else if (iframe.contentWindow)
+    iframedoc = iframe.contentWindow.document;
+
+  if (iframedoc) {
+    iframedoc.open();
+    iframedoc.writeln(html_string);
+    iframedoc.close();
+  } else {
+   //do nothing
+  }
+}//end funciton 
+
+
+
+
+
+
+
+
+//onload fill web page with this starter video to introduce the actors and actresses
+
+function introvideo(){
+
+}//end function 
+
+
+
+
+
+//added wednesday january 17th, 2018
+//##############################
+//      CURRENT VIDEO NAME 
+//##############################
+function current_video_name(x){
+var the_video_name;
+  //video_name_array[0]  = "0"; //this must always be 0
+ if(x == 1){  the_video_name = video_name_array[1]  }  
+ if(x == 2){  the_video_name = video_name_array[2]  }
+ if(x == 3){  the_video_name = video_name_array[3]  }
+ if(x == 4){  the_video_name = video_name_array[4]  }
+ if(x == 5){  the_video_name = video_name_array[5]  } 
+ if(x == 6){  the_video_name = video_name_array[6]  }  //just added this
+/*   
+ if(x == 6){  the_video_name = video_name_array[6]  }  
+ if(x == 7){  the_video_name = video_name_array[7]  }  
+ if(x == 8){  the_video_name = video_name_array[8]  }  
+ if(x == 9){  the_video_name = video_name_array[9]  }  
+ if(x == 10){ the_video_name = video_name_array[10] }  
+ if(x == 11){ the_video_name = video_name_array[11] }  
+*/
+       
+// name of playing video beneath video in square on autoplay page
+var playit  = "<table width = 280 border=0  bgcolor= white CELLPADDING='8'> "; 
+    playit += "<tr  bgcolor=white  ><td align=center>";
+    playit += "<font face='Menlo'><font size=3><font color=black>";
+    playit += the_video_name;
+    playit += "</td></tr></table>";
+  document.getElementById("video_name").innerHTML = playit;
+}//end function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================================================|
+                      makevideowindow(cc)                           |
+                                                                    |                                              |
+         This function is the algorithm that makes this site        |
+         a dream. Nothing else matters as much as this one so       |
+         don't mess with it ever.                                   |
+         links to videos are fed in from arrays and then            |
+        a flag is looked at to determine if autostart is on         |
+        or off. Then it determines which video name has been        |
+        clicked(uses list sequence number) on in the left nav       | 
+         and based on that selection                                |
+        dynamic HTML is used to construct the html for the          |
+        iframe that has the YouTube link fed into it to play.       |                                             
+         WARNING:THIS IS A CRITICAL FUNCTION DON'T TOUCH AT ALL     |
+                                                                    |                                                           |
+   =================================================================|
+*/
+/* =============================================================== */
+ //  This is the important  f u n c t i o n    for making videos
+/* =============================================================== */  
+
+//makelogowindow(); //makes beach ball logo
+//##############################
+//       MAKE VIDEO WINDOW
+//##############################
+function makevideowindow(cc) {
+////("make video window called"); 
+var testervar = cc;
+ //step 1: get the DOM object of the iframe. 
+   var iframe = document.getElementById('videowindow');
+  
+/* ====== begin  autoplay code ========================== */
+    var play_flag;
+  var settings= window.document.tester.radiobox.value;
+  if (settings =="on"){//then
+      play_flag = "true";
+  }else{
+      play_flag = "false";
+  } //end if
+               // <a href='#' onclick = "go_news(); return false;"  cause it's in an iframe
+               // so I need the link ABOVE the damn iframe otherwise it can't access it daaa bad design on the html standards committee
+               
+ //=======end autoplay code ==============================  
+ var html_string = '<html><head><style>';
+     html_string += '</style></head><body bgcolor=white> '; //show_video_menu_list
+     html_string += '<iframe width="366" height="350" src="';
+     
+    /*------------------------------------------------------
+    YouTube link inserted here based on video number (address)
+      ---------------------------------------------------------
+    */
+     //("testervar = " + testervar); 
+    if (testervar == "1"){//then
+         html_string +=  video_link_array[1];
+         //(video_link_array[1]); 
+    }//end if
+    if (testervar == "2"){//then
+         html_string +=  video_link_array[2];
+               //(video_link_array[2]); 
+    }//end if
+    if (testervar == "3"){//then
+         html_string +=  video_link_array[3];
+               //(video_link_array[3]); 
+    }//end if
+    if (testervar == "4"){//then
+         html_string +=  video_link_array[4];
+               //(video_link_array[4]); 
+    }//end if
+    if (testervar == "5"){//then
+         html_string +=  video_link_array[5];
+               //(video_link_array[5]); 
+    }//end if
+    if (testervar == "6"){//then
+         html_string +=  video_link_array[6];
+    }//end if
+    if (testervar == "7"){//then
+         html_string +=  video_link_array[7];
+    }//end if
+    if (testervar == "8"){//then
+         html_string +=  video_link_array[8];
+    }//end if
+    if (testervar == "9"){//then
+         html_string +=  video_link_array[9];
+    }//end if
+    if (testervar == "10"){//then
+         html_string +=  video_link_array[10];
+    }//end if
+    if (testervar == "11"){//then
+         html_string +=  video_link_array[11];
+    }//end if
+    if (testervar == "12"){//then
+         html_string +=  video_link_array[12];
+    }//end if
+    if (testervar == "13"){//then
+         html_string +=  video_link_array[13];
+    }//end if
+    if (testervar == "14"){//then
+         html_string +=  video_link_array[14];
+    }//end if
+    
+    //  play_flag test if true turn on autoplay on videos
+  //////////////////////////////////  
+   if( play_flag == "true"){//then
+       html_string +=  "?autoplay=1";
+    } //end if
+  ////////////////////////////////// //
+    html_string += '" frameborder="0"  scrolling = "no" allowfullscreen></iframe>';
+    html_string +=  '</body></html>';
+
+  var iframedoc = iframe.document;
+  if (iframe.contentDocument)
+    iframedoc = iframe.contentDocument;
+  else if (iframe.contentWindow)
+    iframedoc = iframe.contentWindow.document;
+
+  if (iframedoc) {  
+    // Put the content into the iframe
+    iframedoc.open();
+    iframedoc.writeln(html_string);
+    iframedoc.close();
+  } else {
+   //do nothing
+  }//end if
+   fillmessageboxbeneathvideo(testervar);
+   //this function is called at the end so that the grey box  below the video
+   //isn't  loaded till the video is loaded.
+}//end function 
+
+///////////////// creating logo in hidden frame  id="logo"
+
+
+//====================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================================================|
+                                                                    |
+         TOP NAV NAVIGATION  don't ever touch this code it's        |
+         incredibly sensitive and makes the tabs work nicely        |
+                                                                    |
+   =================================================================|
+*/
+//      TABS NAVIGATION CODE 
+
+//test and toggle functions called when clicked on a video 
+	
+var prevRow = null;
+
+
+
+//##########################
+//TOGGLE FUNCTION  LEFT NAV  =====================================
+//###########################
+function toggle(){
+//video title number clicked on left nav
+var starbucks = window.document.tester.first.value; 
+
+/* --------------------------------------------------------------
+   for loop one iteration and break if true to skip the rest
+   this is a fix to a usability bug of a user clicking
+   on a selected title in left nav that has already been selected
+   so that it remains blue and doesn't fire off functions
+   to reload the already currently playing video
+   Also fixes the bug of the selected video title becoming unselected and stopping the video
+    ---------------------------------------------------------------
+*/
+
+//LOOP   //one time thru loop  being used to break if video title already clicked 
+ for (var i = 0; i < 1; i++){ //this is due to the fact that JS doesn't have a goto or jump
+ var alpha = window.document.tester.first.value;
+ var beta  = window.document.tester.second.value; 
+ 
+ /*
+     CONDITION TEST BELOW TO JUMP OUT OF LOOP IF USER CLICKS
+     ON SELECTED VIDEO NAME THAT'S ALREADY PLAYING AND NAME IS BLUE
+     IF NOT THE SAME THEN FUNCTION RUNS NORMALLY
+*/
+
+
+ 
+ /* BREAKS OUT OF LOOP IF TRUE AND THEY ARE THE SAME */
+ if(alpha == beta){//then     //if this item is already selected skip to bottom.   
+     break; // jump down to bottom of LOOP bypassing changing selected video 
+ }else{
+  //do nothing flow proceeds downwards
+ }//end comparison if selected item clicked on again
+ 
+ 
+ //this is the actual toggle code
+ //Radiation Code do not touch it controls the light change on left nav!!
+ 
+ // it is in here for the toggle code which I don't care about whatsoever, it's irrelevant now ...
+
+    
+    
+  //////////////// end of radioactive code for left nav  ///////////////////////////
+  
+    jsfunction(starbucks); //uses sequence number in list
+    // puts value in field 1 into field 2
+      window.document.tester.second.value = window.document.tester.first.value; //check if this stays here or goes lower
+  } //end LOOP  ====================
+ //// this is END LOOP HERE
+ 
+ 
+ // bypass complete end of loop
+ 
+    //test if no value in second field meaning the video has not been clicked yet
+    var leftnavmemory = window.document.tester.second.value; //value for left menu memory
+    if(leftnavmemory == undefined){ //then //if second field is empty test
+    //proceed to fill the second field with data in one's field
+    //if second field is empty with no value then it's force fed the value from the first memory field
+       window.document.tester.second.value = window.document.tester.first.value
+     } //end if
+} //end function
+//----------------------------------------
+
+
+
+
+
+
+
+
+
+
+//determines which video title has just been clicked
+//##################
+//      TEST
+//##################
+function test(x){//this is the first function fired off when clicking on a video title
+ window.document.tester.first.value = x;
+} //end function
+
+function open_menu(){
+  window.location.href = "iphone_hamburger_menu.html";
+}
+
+
+// end of videos.js
+/* NAV MENU HAMBURGER OVERLAY */
+function navmenu(){
+   //("testing menu system");
+} //end function
+
+
+//array for passing the value 
+//var batton = [];
+//batton[batton.length] = "";
+
+
+var castle = [];
+castle[castle.length] = "";
+
+//castle[0] = "4";  
+
+
+//=====================================
+//this function must be called BEFORE fleaflicker() is calleD
+// this gets the number chosen from the list on the video list on videos.html page 
+
+
+//####################################
+//       DRIVE IN MOVIE CHANGER       //this is the 1st function called when loaded
+//####################################
+function drive_in_movie_changer(){  //this is accessing memory within the browser popcordn
+    var cat = localStorage.getItem('popcorn'); //gets the name of the current video
+    //get name of current video from memory popcorn
+    var wildone = []; //creates array
+    wildone[wildone.length] = cat.charAt(0); //
+    //get first letter from memory
+    castle[0] = wildone[0]; //put what's in popcorn memory into castle slot 0
+    //this puts the video name beneath the video player on autoplay page 
+    current_video_name(cat) //just added this function to show name underneath playing video
+} //end function  cat is grabbed from the memory popcorn
+//------------------------------------------------------
+
+
+
+
+ //when the user clicks on a link from teh video list
+// I will have it put the choice into castle[0];  the bridge should then be complete 
+
+//#######################
+//      FLEA FLICKER      this is the 2nd function called onload
+//#######################
+function flea_flicker(){
+   var x = castle[0]; //this is from the popcorn localstorage memory from videos page
+   eval("player_one(" + x + ");"); //this is called in function below
+   //and then this calls the function below palyer_one(x);
+} //end function
+
+
+  //#########################
+  //        PLAYER ONE       
+  //#########################
+  //this function makes it all work
+  function player_one(x){ ///From the movie this is player_one(x) 
+     eval("test(" + x + ");");    //second video  // do function test(x)
+     toggle(); 
+  } //end function
+  //---------------------------------------------
+  
+  ////// setmemory function
+   function setmemory(v1,v2){  //key and value both strings
+       eval("localStorage.setItem('" + v1 + "','"  +  v2 + "'" + ");" );
+     } 
+
+
+
+//#######################################
+//      OPEN MENU 
+//#######################################
+function open_menu(){ 
+    hamburger_id_of_page_came_from();
+}
+//-------------------
+
+
+
+
+
+
+
+
+//########################################
+//     HAMBURGER ID OF PAGE CAME FROM 
+//#########################################
+function hamburger_id_of_page_came_from(){
+    var this_page = "4.1";    
+    setmemory('fedex',this_page);                               //put "4.1" into memory "fedex"              
+    window.location.href = "iphone_hamburger_menu.html";        //redirect to this url                                    
+  } //end                                                        
+//---------------------                                                    
+   
+   
+</script>
+</head>
+<body onload=" drive_in_movie_changer();flea_flicker();">  
+
+
+
+<table width = 500>
+<tr><td width=25 height = 18 valign=bottom align=left>
+<a href='#' onclick='open_menu();return false;'>
+<img src="hamburger2.jpg" alt="navigation" height="16" width="20"></a>   </td>
+<td width = 95></td><td><font face="Menlo"><font size=4>Modern Day News&nbsp;<font color=mediumpurple><font size=1><b></b></font></font></td></tr>
+</table>
+
+
+
+<table   CELLPADDING='3' style='border-collapse:collapse;border: 
+1px solid black; '  width = 410  border = 1 bgcolor=white  >
+<tr><td  align=center><font size=1><font face='Menlo'><a href='iphone_home.html' 
+style='display:block;text-decoration:none'><FONT COLOR=BLACK>Home</a></td>
+
+<td align=center bgcolor=palegreen ><font size=1><font face='Menlo'><a href='iphone_videos.html' 
+     style='display:block;text-decoration:none'>Videos</a></td>
+     
+     
+<td align=center><font size=1><font face='Menlo'><a href='iphone_characters.html'
+ style='display:block;text-decoration:none'>Characters</a></td>
+<td align=center bgcolor=white><font size=1><font face='Menlo'><a href='iphone_news.html' 
+style='display:block;text-decoration:none'>News</a></td>
+
+
+
+<!--
+<td align=center ><font size=1><font face='Menlo'><a href='iphone_merchandise_filter.html' 
+ style='display:block;text-decoration:none'>Merchandise</a></td>
+ -->
+ 
+ 
+<td align=center><font size=1><font face='Menlo'><a href='iphone_aboutus.html'
+style='display:block;text-decoration:none'>About Us</a></td>
+<td align=center><font size=1><font face='Menlo'><a href='iphone_contactus.html'
+ style='display:block;text-decoration:none'>Contact Us</a></td> </tr></table>
+     
+     
+<!-- here -->
+<table><tr><td height=1></td></tr></table>
+
+
+
+
+
+<table border = 0 bgcolor=white width = 400 >
+<tr></table>
+
+<!-- bring it -->
+<!--
+<this page is dynamically created and the current menu is known from wher ethey came from
+and what page they were on.
+-->
+
+
+<table bgcolor=white><tr><td height = 10 width = 350></td></tr> </table>
+
+<table width = 400 bgcolor=white ><tr><td width = 65>&nbsp;</td><td align = left valign=top>
+<table width = 280 border=1  bgcolor= white CELLPADDING='8' 
+        style='border-collapse:collapse;border: 1px solid lightgrey;'>
+        
+     
+        <!-- keep this one -->
+         <tr  bgcolor=white  ><td  align=center bgcolor=#c3fdb8 >
+          <a href='#' onclick='show_video_menu_list(); ; return false;' style='display:block;text-decoration:none'>
+    <font face='Menlo'><font size=3><font color=black><b>List of Videos</b>
+    </td></tr>
+        
+    </table></td></tr></table> 
+        
+
+    <table width = 400 bgcolor=white >
+    <tr><td width = 55>&nbsp;</td><td align = left valign=top>
+<table width = 280 border=1  bgcolor= white CELLPADDING='8' 
+        style='border-collapse:collapse;border: 1px solid lightgrey;'>
+        
+    
+<!--- ====  BEGIN  List of Videos in Left Nav ============-->
+<table  width=2 border=0 bgcolor=white>
+<tr bgcolor=white><td valign=top align=left bgcolor=white>
+
+
+<table id ="special" bgcolor=orange border=1 spacing = 0 width =2 style="border: 1px solid #D8D8D8;">
+
+
+
+
+<script>
+var html_string = " ";
+
+//===========================
+/* THIS BUILDS THE LEFT NAV DYNAMICALLY 
+      dynamic code START  script     THIS BUILDS THE LEFT NAV DYNAMICALLY 
+      START LOOP TO BUILD LEFT NAV VIDEO LIST DYNAMICALLY AND ADD LINKS AND FUNCTION CALLS
+*/
+
+for (var i = 0; i < video_name_array.length; i++) { //this loops thru the entire video_name_array() length
+
+ } //END of LOOP   END OF LOOP  END OF LOOP
+///////////////////////////====================================
+/*
+          IF NO MOVIES IN LIST THIS CODE BELOW RUNS
+*/
+
+// ONLY HERE IF THERE IS NO DATA AND CONDITION SET TO EMPTY
+ if(video_name_array[1] == "empty"){
+
+html_string +=  "<tr><td   class='odd' ";
+html_string +=  " height= '5 '><font face= 'Menlo'>";
+html_string +=  "&nbsp;&nbsp;";
+html_string +=  "Filming First Video";  //name of video for left nav grabbed from array of video titles based on sequence number in list of array above
+html_string +=  "&nbsp;&nbsp;</font></td> </tr>";
+
+}//end if for empty condition
+
+document.write(html_string);   //dynamically write the loop generated code here of the video list for left nav
+//==================================================== 
+
+
+</script>
+
+<!-- dynamic code END LOOP      -->
+<!--  generated html            -->
+<!-- dynamic code END </script> -->
+
+</table></td>
+<td valign=top align=left bgcolor=white>
+<!-- IFRAMES ARE HERE encased in table code, one for the video window and one for msgwindow -->
+
+<iframe id= "videowindow" width="366" height="350" src="about:blank" frameborder="0" scrolling="no" allowfullscreen></iframe><br>
+
+</td></tr><!-- message window is below the video player -->
+</table></td><td>
+
+
+<table><tr><td></td></tr>   
+</table></td></tr><tr><td></td></tr></table>
+<table bgcolor=white width = 420>
+<tr><td align=center>
+<div id = "video_name">video name here</div>
+</td></tr></table>
+<!--- ====  END of List of Videos in Left Nav ============-->
+
+
+
+<!--  form   -->
+<form name = "tester">
+<input type = hidden  name = "radiobox" size = 4>
+<input type = hidden  name = "first" size = 3>
+<input type = hidden  name = "second" size = 3>
+</form>
+</div>
+<br><br>
+<!-- spacer -->
+<table height = 10 width = 100 bgcolor=white><tr><td>&nbsp;</td></tr></table>
+<table width = 330><tr><td height = 2 align=center><font size=1><font color=lightgrey>Copyright 2018 Modern Day News</font></td></tr></table>
+</body>
+</html>
